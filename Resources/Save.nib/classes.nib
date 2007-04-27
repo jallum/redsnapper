@@ -1,0 +1,12 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = RSSavePanelController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {accessoryView = NSView; footer = NSTextField; formatPopup = NSPopUpButton; }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

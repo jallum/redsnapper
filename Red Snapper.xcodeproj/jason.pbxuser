@@ -1,0 +1,220 @@
+// !$*UTF8*$!
+{
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 96DB0FCD0BB6BE37002EC784 /* Safari */;
+		activeTarget = 8D5B49AC048680CD000E48DA /* Red Snapper */;
+		addToTargets = (
+			8D5B49AC048680CD000E48DA /* Red Snapper */,
+		);
+		breakpoints = (
+		);
+		codeSenseManager = 96DB0FB20BB6BDC2002EC784 /* Code sense */;
+		executables = (
+			96DB0FCD0BB6BE37002EC784 /* Safari */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					400,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					929,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 197245961;
+			PBXWorkspaceStateSaveDate = 197245961;
+		};
+		perUserProjectItems = {
+			96D2ED5F0BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED5F0BC1C22C00A8DEED /* PBXTextBookmark */;
+			96D2ED600BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED600BC1C22C00A8DEED /* PBXTextBookmark */;
+			96D2ED610BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED610BC1C22C00A8DEED /* PBXTextBookmark */;
+			96D2ED620BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED620BC1C22C00A8DEED /* PBXTextBookmark */;
+			96D2ED630BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED630BC1C22C00A8DEED /* PBXTextBookmark */;
+			96D2ED640BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED640BC1C22C00A8DEED /* PBXTextBookmark */;
+			96D2ED650BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED650BC1C22C00A8DEED /* PBXTextBookmark */;
+		};
+		sourceControlManager = 96DB0FB10BB6BDC2002EC784 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	8D5B49AC048680CD000E48DA /* Red Snapper */ = {
+		activeExec = 0;
+	};
+	96239AB90BB591CA005A63BE /* RedSnapper.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1121, 745}}";
+			sepNavSelRange = "{284, 0}";
+			sepNavVisRect = "{{0, 0}, {1121, 745}}";
+		};
+	};
+	96239ABA0BB591CA005A63BE /* RedSnapper.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {2606, 10164}}";
+			sepNavSelRange = "{30180, 0}";
+			sepNavVisRect = "{{0, 9419}, {1121, 745}}";
+		};
+	};
+	96D2ED5F0BC1C22C00A8DEED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 96239AB90BB591CA005A63BE /* RedSnapper.h */;
+		name = "RedSnapper.h: savePanelDidEnd:returnCode:contextInfo:";
+		rLen = 0;
+		rLoc = 284;
+		rType = 0;
+		vrLen = 649;
+		vrLoc = 0;
+	};
+	96D2ED600BC1C22C00A8DEED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 96239ABA0BB591CA005A63BE /* RedSnapper.m */;
+		name = "- (void) savePanelDidEnd:(NSSavePanel*)sheet returnCode:(int)returnCode contextInfo:(WebView*)webView";
+		rLen = 102;
+		rLoc = 23675;
+		rType = 0;
+		vrLen = 3091;
+		vrLoc = 23195;
+	};
+	96D2ED610BC1C22C00A8DEED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 96239ABA0BB591CA005A63BE /* RedSnapper.m */;
+		name = "- (void) savePanelDidEnd:(NSSavePanel*)sheet returnCode:(int)returnCode contextInfo:(NSDictionary*)dictionary";
+		rLen = 102;
+		rLoc = 23675;
+		rType = 0;
+		vrLen = 3083;
+		vrLoc = 23325;
+	};
+	96D2ED620BC1C22C00A8DEED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 96239AB90BB591CA005A63BE /* RedSnapper.h */;
+		name = "RedSnapper.h: savePanelDidEnd:returnCode:contextInfo:";
+		rLen = 0;
+		rLoc = 182;
+		rType = 0;
+		vrLen = 657;
+		vrLoc = 0;
+	};
+	96D2ED630BC1C22C00A8DEED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 96239ABA0BB591CA005A63BE /* RedSnapper.m */;
+		name = "- (void) savePanelDidEnd:(NSSavePanel*)sheet returnCode:(int)returnCode contextInfo:(WebView*)webView";
+		rLen = 102;
+		rLoc = 23675;
+		rType = 0;
+		vrLen = 3144;
+		vrLoc = 23195;
+	};
+	96D2ED640BC1C22C00A8DEED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 96239AB90BB591CA005A63BE /* RedSnapper.h */;
+		name = "RedSnapper.h: savePanelDidEnd:returnCode:contextInfo:";
+		rLen = 0;
+		rLoc = 284;
+		rType = 0;
+		vrLen = 649;
+		vrLoc = 0;
+	};
+	96D2ED650BC1C22C00A8DEED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 96239ABA0BB591CA005A63BE /* RedSnapper.m */;
+		name = "RedSnapper.m: 726";
+		rLen = 0;
+		rLoc = 30180;
+		rType = 0;
+		vrLen = 2491;
+		vrLoc = 27689;
+	};
+	96DB0FB10BB6BDC2002EC784 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+		scmType = "";
+	};
+	96DB0FB20BB6BDC2002EC784 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	96DB0FCD0BB6BE37002EC784 /* Safari */ = {
+		isa = PBXExecutable;
+		activeArgIndex = 2147483647;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		launchableReference = 96DB0FCE0BB6BE37002EC784 /* Safari */;
+		libgmallocEnabled = 0;
+		name = Safari;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+			"15-unsigned char-loadParameters" = 1;
+			"23-unsigned char-loadParameters" = 1;
+			"31-unsigned char-loadParameters" = 1;
+			"39-unsigned char-loadParameters" = 1;
+			"47-unsigned char-loadParameters" = 1;
+			"55-unsigned char-loadParameters" = 1;
+			"7-unsigned char-loadParameters" = 1;
+			"8-unsigned char-loadParameters" = 1;
+			"RSA_N-unsigned char [128]-loadParameters" = 1;
+		};
+	};
+	96DB0FCE0BB6BE37002EC784 /* Safari */ = {
+		isa = PBXFileReference;
+		explicitFileType = "compiled.mach-o.executable";
+		name = Safari;
+		path = /Applications/Safari.app/Contents/MacOS/Safari;
+		sourceTree = "<absolute>";
+	};
+	96DB10B50BB6CD3F002EC784 /* license.plist */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1121, 745}}";
+			sepNavSelRange = "{582, 0}";
+			sepNavVisRect = "{{0, 0}, {1121, 745}}";
+		};
+	};
+}

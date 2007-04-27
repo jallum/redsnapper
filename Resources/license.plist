@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Expires</key>
+	<string>2007-04-07 12:00:01 -0000</string>
+	<key>Licenses</key>
+	<string>1</string>
+	<key>Name</key>
+	<string>Unregistered User</string>
+	<key>Product</key>
+	<string>Red Snapper</string>
+	<key>Signature</key>
+	<data>
+	WSSMFcs4naz9bTgsc2xFwDszU9WyqSPt8arNZ8q7z6r9cT16EwSpS7rb+FWQgJwAg1lP
+	U1KMWsiMyNIdyMRf3VUyTw7B8VjCcVVFFEOeXnZ344YXMP6v/7s9tkRl9OuMrTsTWpLK
+	5SPg1jRiUaszsZYYp50lTQHzNUKHarNTOtA=
+	</data>
+	<key>Version</key>
+	<string>1.3</string>
+</dict>
+</plist>

@@ -1,0 +1,370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		96239AC00BB591CA005A63BE /* RedSnapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 96239ABA0BB591CA005A63BE /* RedSnapper.m */; };
+		96239AC10BB591CA005A63BE /* RSSavePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96239ABC0BB591CA005A63BE /* RSSavePanel.m */; };
+		96239AC20BB591CA005A63BE /* RSSavePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96239ABE0BB591CA005A63BE /* RSSavePanelController.m */; };
+		96FBE2680BA74745008FF6B7 /* wood_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96FBE2670BA74745008FF6B7 /* wood_bg.jpg */; };
+		96FBE3600BA75C37008FF6B7 /* 8dollars.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FBE35F0BA75C37008FF6B7 /* 8dollars.png */; };
+		96FBE5B10BA7A8D8008FF6B7 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96FBE5B00BA7A8D8008FF6B7 /* Carbon.framework */; };
+		F92249180B5AF91A00FCA7A8 /* ToolbarPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F92249150B5AF91A00FCA7A8 /* ToolbarPressed.png */; };
+		F92249190B5AF91A00FCA7A8 /* ToolbarDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = F92249160B5AF91A00FCA7A8 /* ToolbarDisabled.png */; };
+		F922491A0B5AF91A00FCA7A8 /* Toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F92249170B5AF91A00FCA7A8 /* Toolbar.png */; };
+		F92249B10B5B3DCE00FCA7A8 /* click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = F92249B00B5B3DCE00FCA7A8 /* click.aiff */; };
+		F96319730B5D28BA0000DB04 /* RedSnapper.icns in Resources */ = {isa = PBXBuildFile; fileRef = F96319720B5D28BA0000DB04 /* RedSnapper.icns */; };
+		F9631C5E0B5D4A1B0000DB04 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9631C5D0B5D4A1B0000DB04 /* Localizable.strings */; };
+		F9DAC2680B56B10400B1B08E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DAC2670B56B10400B1B08E /* WebKit.framework */; };
+		F9E734D20B59C5C600674B74 /* Save.nib in Resources */ = {isa = PBXBuildFile; fileRef = F9E734D10B59C5C600674B74 /* Save.nib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		8D5B49B6048680CD000E48DA /* Red Snapper.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Red Snapper.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		96239AB90BB591CA005A63BE /* RedSnapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedSnapper.h; sourceTree = "<group>"; };
+		96239ABA0BB591CA005A63BE /* RedSnapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedSnapper.m; sourceTree = "<group>"; };
+		96239ABB0BB591CA005A63BE /* RSSavePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSavePanel.h; sourceTree = "<group>"; };
+		96239ABC0BB591CA005A63BE /* RSSavePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSavePanel.m; sourceTree = "<group>"; };
+		96239ABD0BB591CA005A63BE /* RSSavePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSavePanelController.h; sourceTree = "<group>"; };
+		96239ABE0BB591CA005A63BE /* RSSavePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSavePanelController.m; sourceTree = "<group>"; };
+		96239ABF0BB591CA005A63BE /* Safari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Safari.h; sourceTree = "<group>"; };
+		96239ACD0BB5923B005A63BE /* redsnapper_128.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = redsnapper_128.ai; sourceTree = "<group>"; };
+		96DB10B50BB6CD3F002EC784 /* license.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = license.plist; sourceTree = "<group>"; };
+		96FBE2670BA74745008FF6B7 /* wood_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood_bg.jpg; sourceTree = "<group>"; };
+		96FBE35F0BA75C37008FF6B7 /* 8dollars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8dollars.png; sourceTree = "<group>"; };
+		96FBE5B00BA7A8D8008FF6B7 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		F92249150B5AF91A00FCA7A8 /* ToolbarPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarPressed.png; sourceTree = "<group>"; };
+		F92249160B5AF91A00FCA7A8 /* ToolbarDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarDisabled.png; sourceTree = "<group>"; };
+		F92249170B5AF91A00FCA7A8 /* Toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Toolbar.png; sourceTree = "<group>"; };
+		F92249B00B5B3DCE00FCA7A8 /* click.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = click.aiff; sourceTree = "<group>"; };
+		F96319720B5D28BA0000DB04 /* RedSnapper.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = RedSnapper.icns; sourceTree = "<group>"; };
+		F9631C400B5D49870000DB04 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F9DAC2670B56B10400B1B08E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
+		F9E734D10B59C5C600674B74 /* Save.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = Save.nib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				F9DAC2680B56B10400B1B08E /* WebKit.framework in Frameworks */,
+				96FBE5B10BA7A8D8008FF6B7 /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* Red Snapper */ = {
+			isa = PBXGroup;
+			children = (
+				96239AB40BB59157005A63BE /* Source */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = "Red Snapper";
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				96239AC50BB591EB005A63BE /* Assets */,
+				96FBE35F0BA75C37008FF6B7 /* 8dollars.png */,
+				96DB10B50BB6CD3F002EC784 /* license.plist */,
+				96FBE2670BA74745008FF6B7 /* wood_bg.jpg */,
+				F96319720B5D28BA0000DB04 /* RedSnapper.icns */,
+				F92249B00B5B3DCE00FCA7A8 /* click.aiff */,
+				F92249150B5AF91A00FCA7A8 /* ToolbarPressed.png */,
+				F92249160B5AF91A00FCA7A8 /* ToolbarDisabled.png */,
+				F92249170B5AF91A00FCA7A8 /* Toolbar.png */,
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+				F9631C5D0B5D4A1B0000DB04 /* Localizable.strings */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+				F9E734D10B59C5C600674B74 /* Save.nib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96FBE5B00BA7A8D8008FF6B7 /* Carbon.framework */,
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+				F9DAC2670B56B10400B1B08E /* WebKit.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+				D2F7E65807B2D6F200F64583 /* CoreData.framework */,
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B6048680CD000E48DA /* Red Snapper.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96239AB40BB59157005A63BE /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				96239AB90BB591CA005A63BE /* RedSnapper.h */,
+				96239ABA0BB591CA005A63BE /* RedSnapper.m */,
+				96239ABB0BB591CA005A63BE /* RSSavePanel.h */,
+				96239ABC0BB591CA005A63BE /* RSSavePanel.m */,
+				96239ABD0BB591CA005A63BE /* RSSavePanelController.h */,
+				96239ABE0BB591CA005A63BE /* RSSavePanelController.m */,
+				96239ABF0BB591CA005A63BE /* Safari.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		96239AC50BB591EB005A63BE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				96239ACD0BB5923B005A63BE /* redsnapper_128.ai */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* Red Snapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "Red Snapper" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+				F92248F90B5AF84C00FCA7A8 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Red Snapper";
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = "Red Snapper";
+			productReference = 8D5B49B6048680CD000E48DA /* Red Snapper.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "Red Snapper" */;
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* Red Snapper */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D5B49AC048680CD000E48DA /* Red Snapper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
+				F9E734D20B59C5C600674B74 /* Save.nib in Resources */,
+				F92249180B5AF91A00FCA7A8 /* ToolbarPressed.png in Resources */,
+				F92249190B5AF91A00FCA7A8 /* ToolbarDisabled.png in Resources */,
+				F922491A0B5AF91A00FCA7A8 /* Toolbar.png in Resources */,
+				F92249B10B5B3DCE00FCA7A8 /* click.aiff in Resources */,
+				F96319730B5D28BA0000DB04 /* RedSnapper.icns in Resources */,
+				F9631C5E0B5D4A1B0000DB04 /* Localizable.strings in Resources */,
+				96FBE2680BA74745008FF6B7 /* wood_bg.jpg in Resources */,
+				96FBE3600BA75C37008FF6B7 /* 8dollars.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F92248F90B5AF84C00FCA7A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "if [ \"$ACTION\" = \"build\" ]; then\n  if [ \"$BUILD_STYLE\" = \"Release\" ]; then\n    find \"$TARGET_BUILD_DIR/Red Snapper.bundle\" -type f -perm 755 -exec strip -x \"{}\" \\;\n  fi\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96239AC00BB591CA005A63BE /* RedSnapper.m in Sources */,
+				96239AC10BB591CA005A63BE /* RSSavePanel.m in Sources */,
+				96239AC20BB591CA005A63BE /* RSSavePanelController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F9631C5D0B5D4A1B0000DB04 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9631C400B5D49870000DB04 /* English */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB913B08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_CFLAGS = "-DDEBUG";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+					"-lcrypto",
+				);
+				PRODUCT_NAME = "Red Snapper";
+				SYMROOT = Build;
+				WRAPPER_EXTENSION = bundle;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB913C08733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+					"-lcrypto",
+				);
+				PRODUCT_NAME = "Red Snapper";
+				SYMROOT = Build;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		1DEB913F08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Debug;
+		};
+		1DEB914008733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "Red Snapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913B08733D840010E9CD /* Debug */,
+				1DEB913C08733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "Red Snapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913F08733D840010E9CD /* Debug */,
+				1DEB914008733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
