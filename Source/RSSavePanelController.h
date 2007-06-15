@@ -7,6 +7,7 @@
     NSMutableArray* allowedFileTypes;
     IBOutlet NSView* accessoryView;
     IBOutlet NSPopUpButton* formatPopup;
+	IBOutlet NSSlider* qualitySlider;
     IBOutlet NSTextField* footer;
     int selectedFileType;
 }

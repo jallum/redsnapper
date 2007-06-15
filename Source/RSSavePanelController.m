@@ -48,6 +48,10 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
         }
         [savePanel setDelegate:self];
 
+		/* Mac's Code */
+		//[savePanel setQuality:[qualitySlider floatValue]];
+		[savePanel setQuality:0.0];
+
         id defaultFileType = [[[NSUserDefaultsController sharedUserDefaultsController] defaults] objectForKey:FILE_TYPE_KEY];
         if (defaultFileType && [defaultFileType respondsToSelector:@selector(intValue)]) {
             [self setSelectedFileType:[defaultFileType intValue]];
@@ -80,6 +84,7 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
             [savePanel setFilename:filename];
         }
         [[[NSUserDefaultsController sharedUserDefaultsController] defaults] setObject:[NSNumber numberWithInt:selectedFileType] forKey:FILE_TYPE_KEY];
+
     }
 }
 

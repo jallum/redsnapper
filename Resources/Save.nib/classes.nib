@@ -4,7 +4,12 @@
         {
             CLASS = RSSavePanelController; 
             LANGUAGE = ObjC; 
-            OUTLETS = {accessoryView = NSView; footer = NSTextField; formatPopup = NSPopUpButton; }; 
+            OUTLETS = {
+                accessoryView = NSView; 
+                footer = NSTextField; 
+                formatPopup = NSPopUpButton; 
+                qualitySlider = NSSlider; 
+            }; 
             SUPERCLASS = NSObject; 
         }
     ); 

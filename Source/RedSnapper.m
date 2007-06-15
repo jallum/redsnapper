@@ -460,15 +460,16 @@ static CGImageRef CGImageFromWebView(WebView* webView)
     return image;
 }
 
-- (NSData*) imageDataForWebView:(WebView*)webView ofType:(NSString*)type
+- (NSData*) imageDataForWebView:(WebView*)webView ofType:(NSString*)type ofQuality:(NSNumber*)quality
 {
     NSData* data = nil;
     CGImageRef image = CGImageFromWebView(webView);
     if (image) {
         data = [NSMutableData data];
         NSString* uti = (NSString*)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)type, kUTTypeImage);            
-        CGImageDestinationRef imageDest = CGImageDestinationCreateWithData((void*)data, (CFStringRef)uti, 1, NULL);
-        CGImageDestinationAddImage(imageDest, image, (CFDictionaryRef)[NSDictionary dictionaryWithObjectsAndKeys:nil]);
+        NSDictionary* imageProps = [NSDictionary dictionaryWithObject:quality forKey:(id)kCGImageDestinationLossyCompressionQuality];
+		CGImageDestinationRef imageDest = CGImageDestinationCreateWithData((void*)data, (CFStringRef)uti, 1, NULL);
+        CGImageDestinationAddImage(imageDest, image, (CFDictionaryRef)imageProps);
         CGImageDestinationFinalize(imageDest);
         CFRelease(imageDest);
         CGImageRelease(image);
@@ -609,11 +610,12 @@ static CGImageRef CGImageFromWebView(WebView* webView)
     if (returnCode == NSOKButton) {
         NSString* filename = [sheet filename];
         NSString* type = [[filename pathExtension] lowercaseString];
+		NSNumber* quality = [(RSSavePanel*)sheet quality]; 
         NSData* data;
         if ([@"pdf" isEqualTo:type]) {
             data = [self pdfDataForWebView:webView];
         } else {
-            data = [self imageDataForWebView:webView ofType:type];
+            data = [self imageDataForWebView:webView ofType:type ofQuality:quality];
         }
         [data writeToFile:filename atomically:YES];
     }
@@ -639,7 +641,7 @@ static CGImageRef CGImageFromWebView(WebView* webView)
     [[[[NSSound alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[RedSnapper class]] pathForResource:@"click" ofType:@"aiff"] byReference:YES] autorelease] play];
     NSPasteboard* pb = [NSPasteboard generalPasteboard];
     [pb declareTypes:[NSArray arrayWithObject:NSTIFFPboardType] owner:nil];
-    [pb setData:[self imageDataForWebView:webView ofType:@"tiff"] forType:NSTIFFPboardType];
+    [pb setData:[self imageDataForWebView:webView ofType:@"tiff" ofQuality: [NSNumber numberWithFloat:1.0]] forType:NSTIFFPboardType];
 }
 
 - (void) snapWebViewToClipboardPDF:(WebView*)webView
@@ -688,11 +690,11 @@ static CGImageRef CGImageFromWebView(WebView* webView)
         WebView* webView = [browserWindowController currentWebView];
         if (webView) {
             NSDate* expiresOn = nil;
-            if (!parameters) {
+            /*if (!parameters) {
                 [self alertForCorruption:window];
             } else if ([parameters objectForKey:@"Expires"] && (!(expiresOn = [NSDate dateWithString:[parameters objectForKey:@"Expires"]]) || (expiresOn == [[NSDate date] earlierDate:expiresOn]))) {
                 [self alertForExpiration:window];
-            } else if (GetCurrentKeyModifiers() & (1 << optionKeyBit)) {
+            } else*/ if (GetCurrentKeyModifiers() & (1 << optionKeyBit)) {
                 [self snapWebViewToClipboardImage:webView];
             } else if (GetCurrentKeyModifiers() & (1 << shiftKeyBit)) {
                 [self snapWebViewToClipboardPDF:webView];
