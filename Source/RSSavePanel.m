@@ -8,6 +8,12 @@
     return savePanel;
 }
 
+- (void) dealloc
+{
+    [_quality release];
+    [super dealloc];
+}
+
 - (void) setFilename:(NSString*)filename
 {
     [_nameField setStringValue:filename];
