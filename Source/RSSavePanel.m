@@ -16,14 +16,16 @@
 
 - (NSNumber*) quality
 {
-   if(!_quality)
-     [self setQuality:1.0];
+    if(!_quality) {
+        [self setQuality:1.0];
+    }
     return _quality;
 }
 
 - (void) setQuality:(float)quality
 {
-    _quality = [NSNumber numberWithFloat:quality];
+    [_quality release];
+    _quality = [[NSNumber numberWithFloat:quality] retain];
 }
 
 @end

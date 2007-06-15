@@ -267,8 +267,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>22</integer>
-									<integer>9</integer>
+									<integer>3</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -320,18 +320,16 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>96D2ED650BC1C22C00A8DEED</string>
+										<string>9655E5FC0C01ADD60042134E</string>
 										<key>history</key>
 										<array>
-											<string>96D2ED5F0BC1C22C00A8DEED</string>
-											<string>96D2ED600BC1C22C00A8DEED</string>
+											<string>968A07C70BE289AD001F830D</string>
+											<string>9630470D0BFDBA5800BC1F54</string>
 										</array>
 										<key>prevStack</key>
 										<array>
 											<string>96D2ED610BC1C22C00A8DEED</string>
 											<string>96D2ED620BC1C22C00A8DEED</string>
-											<string>96D2ED630BC1C22C00A8DEED</string>
-											<string>96D2ED640BC1C22C00A8DEED</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -431,11 +429,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>96D2ED660BC1C22C00A8DEED</string>
+				<string>9655E5FD0C01ADD60042134E</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>96D2ED670BC1C22C00A8DEED</string>
+				<string>9655E5FE0C01ADD60042134E</string>
 				<string>96DB0FAB0BB6BDA4002EC784</string>
-				<string>96D2ED680BC1C22C00A8DEED</string>
+				<string>9655E5FF0C01ADD60042134E</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -660,14 +658,14 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>96D2ED690BC1C22C00A8DEED</string>
+				<string>963244EC0BEE71BA00A3912E</string>
 				<string>1CA23EE50692099D00951B8B</string>
-				<string>96D2ED6A0BC1C22C00A8DEED</string>
+				<string>963244ED0BEE71BA00A3912E</string>
 				<string>96DB0FAB0BB6BDA4002EC784</string>
-				<string>96D2ED6B0BC1C22C00A8DEED</string>
+				<string>963244EE0BEE71BA00A3912E</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 				<string>1CA23EE80692099D00951B8B</string>
-				<string>96D2ED6C0BC1C22C00A8DEED</string>
+				<string>963244EF0BEE71BA00A3912E</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.buildAndRun</string>

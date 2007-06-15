@@ -9,6 +9,7 @@
 		);
 		breakpoints = (
 		);
+		breakpointsGroup = 968A07CF0BE289AD001F830D /* XCBreakpointsBucket */;
 		codeSenseManager = 96DB0FB20BB6BDC2002EC784 /* Code sense */;
 		executables = (
 			96DB0FCD0BB6BE37002EC784 /* Safari */,
@@ -50,17 +51,15 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 197245961;
-			PBXWorkspaceStateSaveDate = 197245961;
+			PBXPerProjectTemplateStateSaveDate = 201436591;
+			PBXWorkspaceStateSaveDate = 201436591;
 		};
 		perUserProjectItems = {
-			96D2ED5F0BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED5F0BC1C22C00A8DEED /* PBXTextBookmark */;
-			96D2ED600BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED600BC1C22C00A8DEED /* PBXTextBookmark */;
+			9630470D0BFDBA5800BC1F54 /* PBXTextBookmark */ = 9630470D0BFDBA5800BC1F54 /* PBXTextBookmark */;
+			9655E5FC0C01ADD60042134E /* PBXTextBookmark */ = 9655E5FC0C01ADD60042134E /* PBXTextBookmark */;
+			968A07C70BE289AD001F830D /* PBXTextBookmark */ = 968A07C70BE289AD001F830D /* PBXTextBookmark */;
 			96D2ED610BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED610BC1C22C00A8DEED /* PBXTextBookmark */;
 			96D2ED620BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED620BC1C22C00A8DEED /* PBXTextBookmark */;
-			96D2ED630BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED630BC1C22C00A8DEED /* PBXTextBookmark */;
-			96D2ED640BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED640BC1C22C00A8DEED /* PBXTextBookmark */;
-			96D2ED650BC1C22C00A8DEED /* PBXTextBookmark */ = 96D2ED650BC1C22C00A8DEED /* PBXTextBookmark */;
 		};
 		sourceControlManager = 96DB0FB10BB6BDC2002EC784 /* Source Control */;
 		userBuildSettings = {
@@ -79,11 +78,31 @@
 	96239ABA0BB591CA005A63BE /* RedSnapper.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {2606, 10164}}";
-			sepNavSelRange = "{30180, 0}";
-			sepNavVisRect = "{{0, 9419}, {1121, 745}}";
+			sepNavSelRange = "{25086, 432}";
+			sepNavVisRect = "{{0, 8528}, {1121, 745}}";
 		};
 	};
-	96D2ED5F0BC1C22C00A8DEED /* PBXTextBookmark */ = {
+	9630470D0BFDBA5800BC1F54 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 96239ABA0BB591CA005A63BE /* RedSnapper.m */;
+		name = "RedSnapper.m: 656";
+		rLen = 511;
+		rLoc = 26882;
+		rType = 0;
+		vrLen = 2930;
+		vrLoc = 26286;
+	};
+	9655E5FC0C01ADD60042134E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 96239ABA0BB591CA005A63BE /* RedSnapper.m */;
+		name = "NSAlert* alert = [NSAlert alertWithMessageText:RSLocalizedString(@\"This Red Snapper is past it's expiration date (and really shouldn't be eaten.)\", @\"\") defaultButton:nil alternateButton:RSLocalizedString(@\"No Thanks\", \"\") otherButton:nil informativeTextWithFormat:RSLocalizedString(@\"For a much fresher snapper, or instuctions for removing the Red Snapper from Safari, please visit our website at http://tastyapps.com\", @\"\")];";
+		rLen = 432;
+		rLoc = 25086;
+		rType = 0;
+		vrLen = 3438;
+		vrLoc = 23815;
+	};
+	968A07C70BE289AD001F830D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 96239AB90BB591CA005A63BE /* RedSnapper.h */;
 		name = "RedSnapper.h: savePanelDidEnd:returnCode:contextInfo:";
@@ -93,15 +112,11 @@
 		vrLen = 649;
 		vrLoc = 0;
 	};
-	96D2ED600BC1C22C00A8DEED /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 96239ABA0BB591CA005A63BE /* RedSnapper.m */;
-		name = "- (void) savePanelDidEnd:(NSSavePanel*)sheet returnCode:(int)returnCode contextInfo:(WebView*)webView";
-		rLen = 102;
-		rLoc = 23675;
-		rType = 0;
-		vrLen = 3091;
-		vrLoc = 23195;
+	968A07CF0BE289AD001F830D /* XCBreakpointsBucket */ = {
+		isa = XCBreakpointsBucket;
+		name = "Red Snapper";
+		objects = (
+		);
 	};
 	96D2ED610BC1C22C00A8DEED /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -120,38 +135,8 @@
 		rLen = 0;
 		rLoc = 182;
 		rType = 0;
-		vrLen = 657;
-		vrLoc = 0;
-	};
-	96D2ED630BC1C22C00A8DEED /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 96239ABA0BB591CA005A63BE /* RedSnapper.m */;
-		name = "- (void) savePanelDidEnd:(NSSavePanel*)sheet returnCode:(int)returnCode contextInfo:(WebView*)webView";
-		rLen = 102;
-		rLoc = 23675;
-		rType = 0;
-		vrLen = 3144;
-		vrLoc = 23195;
-	};
-	96D2ED640BC1C22C00A8DEED /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 96239AB90BB591CA005A63BE /* RedSnapper.h */;
-		name = "RedSnapper.h: savePanelDidEnd:returnCode:contextInfo:";
-		rLen = 0;
-		rLoc = 284;
-		rType = 0;
 		vrLen = 649;
 		vrLoc = 0;
-	};
-	96D2ED650BC1C22C00A8DEED /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 96239ABA0BB591CA005A63BE /* RedSnapper.m */;
-		name = "RedSnapper.m: 726";
-		rLen = 0;
-		rLoc = 30180;
-		rType = 0;
-		vrLen = 2491;
-		vrLoc = 27689;
 	};
 	96DB0FB10BB6BDC2002EC784 /* Source Control */ = {
 		isa = PBXSourceControlManager;
