@@ -5,6 +5,7 @@
             CLASS = RSSavePanelController; 
             LANGUAGE = ObjC; 
             OUTLETS = {
+                "_widthComboBox" = NSComboBox; 
                 accessoryView = NSView; 
                 footer = NSTextField; 
                 formatPopup = NSPopUpButton; 

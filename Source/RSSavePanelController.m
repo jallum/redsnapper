@@ -67,6 +67,17 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
         } else {
             [self setSelectedFileType:4];
         }
+
+        [_widthComboBox removeAllItems];
+        [_widthComboBox addItemsWithObjectValues:
+            [NSArray arrayWithObjects:
+                [NSNumber numberWithInt:640], 
+                [NSNumber numberWithInt:800], 
+                [NSNumber numberWithInt:1024], 
+                [NSNumber numberWithInt:1280], 
+                nil
+            ]
+        ];
         
         [self setQuality:1.0];
     }
@@ -143,6 +154,11 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
 - (BOOL) isQualityEnabled
 {
 	return [compressibleFileTypes containsObject:[allowedFileTypes objectAtIndex:selectedFileType]];
+}
+
+- (void) setNilValueForKey:(NSString*)key
+{
+    
 }
 
 @end

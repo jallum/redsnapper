@@ -9,6 +9,7 @@
     IBOutlet NSView* accessoryView;
     IBOutlet NSPopUpButton* formatPopup;
 	IBOutlet NSSlider* qualitySlider;
+    IBOutlet NSComboBox* _widthComboBox;
     IBOutlet NSTextField* footer;
     int selectedFileType;
     float _quality;
