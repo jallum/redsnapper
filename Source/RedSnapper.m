@@ -418,7 +418,7 @@ static inline void renderFooter(int width)
     [info drawAtPoint:p];
 }
 
-static CGImageRef CGImageFromWebView(WebView* webView)
+static CGImageRef CGImageFromWebView(WebView* webView, int width)
 {
     NSView* view = [[[webView mainFrame] frameView] documentView];
     NSRect frame = [view frame];
@@ -438,18 +438,21 @@ static CGImageRef CGImageFromWebView(WebView* webView)
     [webView setFrame:oldFrame];
     [oldSuperview addSubview:webView];
     [webView release];
+	
+	int height = (int)(((float)width/(float)frame.size.width) * (float)frame.size.height);
 
     void* buffer = malloc(frame.size.width * ((registered()?0:FOOTER) + frame.size.height) * 4);
     if (buffer) {
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-        CGContextRef context = CGBitmapContextCreate(buffer, frame.size.width, (registered()?0:FOOTER) + frame.size.height, 8, frame.size.width * 4, colorSpace, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedLast);
+        CGContextRef context = CGBitmapContextCreate(buffer, width, (registered()?0:FOOTER) + height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedLast);
         CGColorSpaceRelease(colorSpace);
         NSGraphicsContext* graphicsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
         [NSGraphicsContext saveGraphicsState];
         [NSGraphicsContext setCurrentContext:graphicsContext];
-        [imageRep drawAtPoint:NSMakePoint(0, (registered()?0:FOOTER))];
+        [graphicsContext setImageInterpolation:NSImageInterpolationHigh];
+		[imageRep drawInRect:NSMakeRect(0, (registered()?0:FOOTER), width, height)];
         if (!registered()) {
-            renderFooter(frame.size.width);
+            renderFooter(width);
         }
         [graphicsContext flushGraphics];
         [NSGraphicsContext restoreGraphicsState];
@@ -460,10 +463,10 @@ static CGImageRef CGImageFromWebView(WebView* webView)
     return image;
 }
 
-- (NSData*) imageDataForWebView:(WebView*)webView ofType:(NSString*)type ofQuality:(float)quality
+- (NSData*) imageDataForWebView:(WebView*)webView ofType:(NSString*)type ofQuality:(float)quality ofWidth:(int)width
 {
     NSData* data = nil;
-    CGImageRef image = CGImageFromWebView(webView);
+    CGImageRef image = CGImageFromWebView(webView, width);
     if (image) {
         data = [NSMutableData data];
         NSString* uti = (NSString*)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)type, kUTTypeImage);            
@@ -477,9 +480,9 @@ static CGImageRef CGImageFromWebView(WebView* webView)
     return data;
 }
 
-- (NSData*) pdfDataForWebView:(WebView*)webView
+- (NSData*) pdfDataForWebView:(WebView*)webView ofWidth:(int)width
 {
-    CGImageRef image = CGImageFromWebView(webView);
+    CGImageRef image = CGImageFromWebView(webView, width);
     NSData* data = nil;
     if (image) {
         data = [[[NSMutableData alloc] init] autorelease];
@@ -614,9 +617,9 @@ static CGImageRef CGImageFromWebView(WebView* webView)
 		int width = [[sheet delegate] width];
         NSData* data;
         if ([@"pdf" isEqualTo:type]) {
-            data = [self pdfDataForWebView:webView];
+            data = [self pdfDataForWebView:webView ofWidth:width];
         } else {
-            data = [self imageDataForWebView:webView ofType:type ofQuality:quality];
+            data = [self imageDataForWebView:webView ofType:type ofQuality:quality ofWidth:width];
         }
         [data writeToFile:filename atomically:YES];
     }
@@ -642,7 +645,9 @@ static CGImageRef CGImageFromWebView(WebView* webView)
     [[[[NSSound alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[RedSnapper class]] pathForResource:@"click" ofType:@"aiff"] byReference:YES] autorelease] play];
     NSPasteboard* pb = [NSPasteboard generalPasteboard];
     [pb declareTypes:[NSArray arrayWithObject:NSTIFFPboardType] owner:nil];
-    [pb setData:[self imageDataForWebView:webView ofType:@"tiff" ofQuality: 1.0] forType:NSTIFFPboardType];
+	NSView* view = [[[webView mainFrame] frameView] documentView];
+    NSRect frame = [view frame];
+    [pb setData:[self imageDataForWebView:webView ofType:@"tiff" ofQuality: 1.0 ofWidth:frame.size.width] forType:NSTIFFPboardType];
 }
 
 - (void) snapWebViewToClipboardPDF:(WebView*)webView
@@ -650,7 +655,9 @@ static CGImageRef CGImageFromWebView(WebView* webView)
     [[[[NSSound alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[RedSnapper class]] pathForResource:@"click" ofType:@"aiff"] byReference:YES] autorelease] play];
     NSPasteboard* pb = [NSPasteboard generalPasteboard];
     [pb declareTypes:[NSArray arrayWithObject:NSPDFPboardType] owner:nil];
-    [pb setData:[self pdfDataForWebView:webView] forType:NSPDFPboardType];
+	NSView* view = [[[webView mainFrame] frameView] documentView];
+    NSRect frame = [view frame];
+    [pb setData:[self pdfDataForWebView:webView ofWidth:frame.size.width] forType:NSPDFPboardType];
 }
 
 - (void) snapWebViewToFile:(WebView*)webView expiresOn:(NSDate*)expiresOn
