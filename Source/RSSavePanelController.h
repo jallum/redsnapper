@@ -5,6 +5,7 @@
 @interface RSSavePanelController : NSObject {
     RSSavePanel* savePanel;
     NSMutableArray* allowedFileTypes;
+	NSMutableArray* compressibleFileTypes;
     IBOutlet NSView* accessoryView;
     IBOutlet NSPopUpButton* formatPopup;
 	IBOutlet NSSlider* qualitySlider;

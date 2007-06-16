@@ -29,6 +29,13 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
                 [allowedFileTypes addObject:fileType];
             }
         }
+		
+		/* Build a list of compressible file types
+		*/
+		compressibleFileTypes = [NSMutableArray arrayWithCapacity:2];
+		[compressibleFileTypes addObject:@"jpeg"];
+		[compressibleFileTypes addObject:@"jp2"];
+		compressibleFileTypes = [compressibleFileTypes retain];
         
         /*  Sort and retain the allowed file types.
          */
@@ -72,6 +79,7 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
 - (void) dealloc
 {
     [allowedFileTypes release];
+	[compressibleFileTypes release];
     [super dealloc];
 }
 
@@ -122,7 +130,7 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
 
 - (BOOL) isQualityEnabled
 {
-	return (selectedFileType == 4);
+	return [compressibleFileTypes containsObject:[allowedFileTypes objectAtIndex:selectedFileType]];
 }
 
 @end
