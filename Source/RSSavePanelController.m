@@ -6,6 +6,13 @@
 static NSString* FILE_TYPE_KEY = @"com.tastyapps.RedSnapper.fileType";
 static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
 
++ (void) initialize
+{
+    if (self == [RSSavePanelController class]) {
+        [self setKeys:[NSArray arrayWithObjects:@"selectedFileType", nil] triggerChangeNotificationsForDependentKey:@"qualityEnabled"];
+    }
+}
+
 - (id) init
 {
     if (self = [super init]) {
