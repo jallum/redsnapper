@@ -25,4 +25,6 @@
 
 - (void) setFooterText:(NSString*)text;
 
+- (BOOL) isQualityEnabled;
+
 @end

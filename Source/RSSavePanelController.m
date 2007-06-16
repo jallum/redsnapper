@@ -113,4 +113,9 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
     [footer setStringValue:text];
 }
 
+- (BOOL) isQualityEnabled
+{
+	return (selectedFileType == 4);
+}
+
 @end
