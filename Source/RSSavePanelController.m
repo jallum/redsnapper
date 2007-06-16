@@ -32,10 +32,7 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
 		
 		/* Build a list of compressible file types
 		*/
-		compressibleFileTypes = [NSMutableArray arrayWithCapacity:2];
-		[compressibleFileTypes addObject:@"jpeg"];
-		[compressibleFileTypes addObject:@"jp2"];
-		compressibleFileTypes = [compressibleFileTypes retain];
+		compressibleFileTypes = [[NSMutableArray alloc] initWithObjects:@"jpeg", @"jp2"];
         
         /*  Sort and retain the allowed file types.
          */
@@ -114,7 +111,6 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
 
 - (void) setQuality:(float)quality
 {
-    NSLog(@"setQuality:%g", quality);
     _quality = quality;
 }
 
