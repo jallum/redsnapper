@@ -695,11 +695,11 @@ static CGImageRef CGImageFromWebView(WebView* webView)
         WebView* webView = [browserWindowController currentWebView];
         if (webView) {
             NSDate* expiresOn = nil;
-            /*if (!parameters) {
+            if (!parameters) {
                 [self alertForCorruption:window];
             } else if ([parameters objectForKey:@"Expires"] && (!(expiresOn = [NSDate dateWithString:[parameters objectForKey:@"Expires"]]) || (expiresOn == [[NSDate date] earlierDate:expiresOn]))) {
                 [self alertForExpiration:window];
-            } else*/ if (GetCurrentKeyModifiers() & (1 << optionKeyBit)) {
+            } else if (GetCurrentKeyModifiers() & (1 << optionKeyBit)) {
                 [self snapWebViewToClipboardImage:webView];
             } else if (GetCurrentKeyModifiers() & (1 << shiftKeyBit)) {
                 [self snapWebViewToClipboardPDF:webView];
