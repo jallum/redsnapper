@@ -114,6 +114,16 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
     _quality = quality;
 }
 
+- (int) width
+{
+	return _width;
+}
+
+- (void) setWidth:(int)width
+{
+	_width = width;
+}
+
 - (void) panel:(id)sender directoryDidChange:(NSString*)directory
 {
     [[[NSUserDefaultsController sharedUserDefaultsController] defaults] setObject:directory forKey:DIRECTORY_KEY];

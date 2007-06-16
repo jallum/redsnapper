@@ -12,6 +12,7 @@
     IBOutlet NSTextField* footer;
     int selectedFileType;
     float _quality;
+	int _width;
 }
 
 - (id) init;
@@ -23,6 +24,9 @@
 
 - (void) setQuality:(float)quality;
 - (float) quality;
+
+- (void) setWidth:(int)width;
+- (int) width;
 
 - (void) setFooterText:(NSString*)text;
 
