@@ -10,6 +10,7 @@
 	IBOutlet NSSlider* qualitySlider;
     IBOutlet NSTextField* footer;
     int selectedFileType;
+    float _quality;
 }
 
 - (id) init;
@@ -18,6 +19,10 @@
 
 - (void) setSelectedFileType:(int)selectedFileType;
 - (int) selectedFileType;
+
+- (void) setQuality:(float)quality;
+- (float) quality;
+
 - (void) setFooterText:(NSString*)text;
 
 @end
