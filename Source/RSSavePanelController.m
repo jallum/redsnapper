@@ -111,6 +111,9 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
 
 - (void) setQuality:(float)quality
 {
+#ifdef DEBUG
+    NSLog(@"setQuality:%g", quality);
+#endif
     _quality = quality;
 }
 
@@ -121,6 +124,9 @@ static NSString* DIRECTORY_KEY = @"com.tastyapps.RedSnapper.directory";
 
 - (void) setWidth:(int)width
 {
+#ifdef DEBUG
+    NSLog(@"setWidth:%d", width);
+#endif
 	_width = width;
 }
 

@@ -613,8 +613,9 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
     if (returnCode == NSOKButton) {
         NSString* filename = [sheet filename];
         NSString* type = [[filename pathExtension] lowercaseString];
-		float quality = [[sheet delegate] quality]; 
-		int width = [[sheet delegate] width];
+		RSSavePanelController* controller = [sheet delegate];
+        float quality = [controller quality]; 
+		int width = [controller width];
         NSData* data;
         if ([@"pdf" isEqualTo:type]) {
             data = [self pdfDataForWebView:webView ofWidth:width];
