@@ -21,6 +21,7 @@
 		F92249B10B5B3DCE00FCA7A8 /* click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = F92249B00B5B3DCE00FCA7A8 /* click.aiff */; };
 		F96319730B5D28BA0000DB04 /* RedSnapper.icns in Resources */ = {isa = PBXBuildFile; fileRef = F96319720B5D28BA0000DB04 /* RedSnapper.icns */; };
 		F9631C5E0B5D4A1B0000DB04 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9631C5D0B5D4A1B0000DB04 /* Localizable.strings */; };
+		F9BD7AF70C244F54007F07EE /* license.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96DB10B50BB6CD3F002EC784 /* license.plist */; };
 		F9DAC2680B56B10400B1B08E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DAC2670B56B10400B1B08E /* WebKit.framework */; };
 		F9E734D20B59C5C600674B74 /* Save.nib in Resources */ = {isa = PBXBuildFile; fileRef = F9E734D10B59C5C600674B74 /* Save.nib */; };
 /* End PBXBuildFile section */
@@ -212,6 +213,7 @@
 				F9631C5E0B5D4A1B0000DB04 /* Localizable.strings in Resources */,
 				96FBE2680BA74745008FF6B7 /* wood_bg.jpg in Resources */,
 				96FBE3600BA75C37008FF6B7 /* 8dollars.png in Resources */,
+				F9BD7AF70C244F54007F07EE /* license.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
