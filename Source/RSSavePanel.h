@@ -1,14 +1,14 @@
 #import <Cocoa/Cocoa.h>
 
 @interface RSSavePanel : NSSavePanel {
-	NSNumber* _quality;
+	float _quality;
 }
 
 + (id) savePanel;
 
 - (void) setFilename:(NSString*)filename;
 
-- (NSNumber*) quality;
+- (float) quality;
 
 - (void) setQuality:(float)quality;
 

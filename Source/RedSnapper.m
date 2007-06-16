@@ -460,14 +460,14 @@ static CGImageRef CGImageFromWebView(WebView* webView)
     return image;
 }
 
-- (NSData*) imageDataForWebView:(WebView*)webView ofType:(NSString*)type ofQuality:(NSNumber*)quality
+- (NSData*) imageDataForWebView:(WebView*)webView ofType:(NSString*)type ofQuality:(float)quality
 {
     NSData* data = nil;
     CGImageRef image = CGImageFromWebView(webView);
     if (image) {
         data = [NSMutableData data];
         NSString* uti = (NSString*)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)type, kUTTypeImage);            
-        NSDictionary* imageProps = [NSDictionary dictionaryWithObject:quality forKey:(id)kCGImageDestinationLossyCompressionQuality];
+        NSDictionary* imageProps = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:quality] forKey:(id)kCGImageDestinationLossyCompressionQuality];
 		CGImageDestinationRef imageDest = CGImageDestinationCreateWithData((void*)data, (CFStringRef)uti, 1, NULL);
         CGImageDestinationAddImage(imageDest, image, (CFDictionaryRef)imageProps);
         CGImageDestinationFinalize(imageDest);
@@ -610,7 +610,7 @@ static CGImageRef CGImageFromWebView(WebView* webView)
     if (returnCode == NSOKButton) {
         NSString* filename = [sheet filename];
         NSString* type = [[filename pathExtension] lowercaseString];
-		NSNumber* quality = [(RSSavePanel*)sheet quality]; 
+		float quality = [(RSSavePanel*)sheet quality]; 
         NSData* data;
         if ([@"pdf" isEqualTo:type]) {
             data = [self pdfDataForWebView:webView];
@@ -641,7 +641,7 @@ static CGImageRef CGImageFromWebView(WebView* webView)
     [[[[NSSound alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[RedSnapper class]] pathForResource:@"click" ofType:@"aiff"] byReference:YES] autorelease] play];
     NSPasteboard* pb = [NSPasteboard generalPasteboard];
     [pb declareTypes:[NSArray arrayWithObject:NSTIFFPboardType] owner:nil];
-    [pb setData:[self imageDataForWebView:webView ofType:@"tiff" ofQuality: [NSNumber numberWithFloat:1.0]] forType:NSTIFFPboardType];
+    [pb setData:[self imageDataForWebView:webView ofType:@"tiff" ofQuality: 1.0] forType:NSTIFFPboardType];
 }
 
 - (void) snapWebViewToClipboardPDF:(WebView*)webView

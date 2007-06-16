@@ -8,30 +8,25 @@
     return savePanel;
 }
 
-- (void) dealloc
+- (void) init
 {
-    [_quality release];
-    [super dealloc];
+    _quality = 1.0;
+	[super init];
 }
 
 - (void) setFilename:(NSString*)filename
 {
     [_nameField setStringValue:filename];
-	[self setQuality:0.0];
 }
 
-- (NSNumber*) quality
+- (float) quality
 {
-    if(!_quality) {
-        [self setQuality:1.0];
-    }
     return _quality;
 }
 
 - (void) setQuality:(float)quality
 {
-    [_quality release];
-    _quality = [[NSNumber numberWithFloat:quality] retain];
+    _quality = quality;
 }
 
 @end
