@@ -493,7 +493,11 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
 	NSImage* source = [self imageFromCGImageRef:image];
 	NSImage* thumbnail = [[NSImage alloc] initWithSize:NSMakeSize(128, 128)];
 	[thumbnail lockFocus];
+    [NSGraphicsContext saveGraphicsState];
+    [[NSGraphicsContext currentContext] setShouldAntialias:YES];
+    [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
 	[source drawInRect:NSMakeRect(0, 0, 128, 128) fromRect:NSMakeRect(0, height > width ? height - width : 0, width, width) operation:NSCompositeCopy fraction:1.0];
+    [NSGraphicsContext restoreGraphicsState];
 	[thumbnail unlockFocus];
 #ifdef DEBUG
     [[thumbnail TIFFRepresentation] writeToFile:[@"~/Desktop/thumbnail.tiff" stringByExpandingTildeInPath] atomically:YES];
