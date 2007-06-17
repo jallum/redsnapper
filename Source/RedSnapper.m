@@ -489,11 +489,15 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
 - (NSImage*) generateThumbnail:(CGImageRef)image
 {
     float width = CGImageGetWidth(image);
+    float height = CGImageGetHeight(image);
 	NSImage* source = [self imageFromCGImageRef:image];
 	NSImage* thumbnail = [[NSImage alloc] initWithSize:NSMakeSize(128, 128)];
 	[thumbnail lockFocus];
-	[source drawInRect:NSMakeRect(0, 0, 128, 128) fromRect:NSMakeRect(0, 0, width, width) operation:NSCompositeCopy fraction:1.0];
+	[source drawInRect:NSMakeRect(0, 0, 128, 128) fromRect:NSMakeRect(0, height > width ? height - width : 0, width, width) operation:NSCompositeCopy fraction:1.0];
 	[thumbnail unlockFocus];
+#ifdef DEBUG
+    [[thumbnail TIFFRepresentation] writeToFile:[@"~/Desktop/thumbnail.tiff" stringByExpandingTildeInPath] atomically:YES];
+#endif    
 	[source release];
 	return thumbnail;
 }
@@ -645,7 +649,7 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
         NSString* filename = [sheet filename];
         NSString* type = [[filename pathExtension] lowercaseString];
 		RSSavePanelController* controller = [sheet delegate];
-        float quality = [controller quality]; 
+        float quality = [controller quality];
 		int width = [controller width];
 		CGImageRef image = CGImageFromWebView(webView, width);
         NSData* data;
@@ -657,7 +661,7 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
         [data writeToFile:filename atomically:YES];
 		/* Generate Icon */
 		NSImage* icon = [self generateThumbnail:image];
-		[[NSWorkspace sharedWorkspace] setIcon:icon forFile:filename options:nil];
+		[[NSWorkspace sharedWorkspace] setIcon:icon forFile:filename options:0];
 		[icon release];
 		CGImageRelease(image);
     }
