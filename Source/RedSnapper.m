@@ -463,11 +463,45 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
     return image;
 }
 
-- (NSData*) imageDataForWebView:(WebView*)webView ofType:(NSString*)type ofQuality:(float)quality ofWidth:(int)width
+- (NSImage*) imageFromCGImageRef:(CGImageRef)image
+{
+
+    NSRect imageRect = NSMakeRect(0.0, 0.0, 0.0, 0.0);
+    CGContextRef imageContext = nil;
+    NSImage* newImage = nil;
+
+    // Get the image dimensions.
+    imageRect.size.height = CGImageGetHeight(image);
+    imageRect.size.width = CGImageGetWidth(image);
+
+    // Create a new image to receive the Quartz image data.
+    newImage = [[NSImage alloc] initWithSize:imageRect.size];
+    [newImage lockFocus];
+    
+	// Get the Quartz context and draw.
+    imageContext = (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
+    CGContextDrawImage(imageContext, *(CGRect*)&imageRect, image);
+    [newImage unlockFocus];
+	
+    return newImage;
+}
+
+- (NSImage*) generateThumbnail:(CGImageRef)image
+{
+    float width = CGImageGetWidth(image);
+	NSImage* source = [self imageFromCGImageRef:image];
+	NSImage* thumbnail = [[NSImage alloc] initWithSize:NSMakeSize(128, 128)];
+	[thumbnail lockFocus];
+	[source drawInRect:NSMakeRect(0, 0, 128, 128) fromRect:NSMakeRect(0, 0, width, width) operation:NSCompositeCopy fraction:1.0];
+	[thumbnail unlockFocus];
+	[source release];
+	return thumbnail;
+}
+
+- (NSData*) imageDataForWebView:(CGImageRef)image ofType:(NSString*)type ofQuality:(float)quality
 {
     NSData* data = nil;
-    CGImageRef image = CGImageFromWebView(webView, width);
-    if (image) {
+	if (image) {
         data = [NSMutableData data];
         NSString* uti = (NSString*)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)type, kUTTypeImage);            
         NSDictionary* imageProps = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:quality] forKey:(id)kCGImageDestinationLossyCompressionQuality];
@@ -475,14 +509,12 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
         CGImageDestinationAddImage(imageDest, image, (CFDictionaryRef)imageProps);
         CGImageDestinationFinalize(imageDest);
         CFRelease(imageDest);
-        CGImageRelease(image);
     }
     return data;
 }
 
-- (NSData*) pdfDataForWebView:(WebView*)webView ofWidth:(int)width
+- (NSData*) pdfDataForWebView:(WebView*)webView withImage:(CGImageRef)image
 {
-    CGImageRef image = CGImageFromWebView(webView, width);
     NSData* data = nil;
     if (image) {
         data = [[[NSMutableData alloc] init] autorelease];
@@ -603,7 +635,6 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
         CGContextEndPage(context);
         CGContextRelease(context);
         CGDataConsumerRelease(datacon);
-        CGImageRelease(image);
     }
     return data;
 }
@@ -616,13 +647,19 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
 		RSSavePanelController* controller = [sheet delegate];
         float quality = [controller quality]; 
 		int width = [controller width];
+		CGImageRef image = CGImageFromWebView(webView, width);
         NSData* data;
         if ([@"pdf" isEqualTo:type]) {
-            data = [self pdfDataForWebView:webView ofWidth:width];
+            data = [self pdfDataForWebView:webView withImage:image];
         } else {
-            data = [self imageDataForWebView:webView ofType:type ofQuality:quality ofWidth:width];
+            data = [self imageDataForWebView:image ofType:type ofQuality:quality];
         }
         [data writeToFile:filename atomically:YES];
+		/* Generate Icon */
+		NSImage* icon = [self generateThumbnail:image];
+		[[NSWorkspace sharedWorkspace] setIcon:icon forFile:filename options:nil];
+		[icon release];
+		CGImageRelease(image);
     }
 }
 
@@ -648,7 +685,8 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
     [pb declareTypes:[NSArray arrayWithObject:NSTIFFPboardType] owner:nil];
 	NSView* view = [[[webView mainFrame] frameView] documentView];
     NSRect frame = [view frame];
-    [pb setData:[self imageDataForWebView:webView ofType:@"tiff" ofQuality: 1.0 ofWidth:frame.size.width] forType:NSTIFFPboardType];
+	CGImageRef image = CGImageFromWebView(webView, frame.size.width);
+    [pb setData:[self imageDataForWebView:image ofType:@"tiff" ofQuality: 1.0] forType:NSTIFFPboardType];
 }
 
 - (void) snapWebViewToClipboardPDF:(WebView*)webView
@@ -658,7 +696,8 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
     [pb declareTypes:[NSArray arrayWithObject:NSPDFPboardType] owner:nil];
 	NSView* view = [[[webView mainFrame] frameView] documentView];
     NSRect frame = [view frame];
-    [pb setData:[self pdfDataForWebView:webView ofWidth:frame.size.width] forType:NSPDFPboardType];
+	CGImageRef image = CGImageFromWebView(webView, frame.size.width);
+    [pb setData:[self pdfDataForWebView:webView withImage:image] forType:NSPDFPboardType];
 }
 
 - (void) snapWebViewToFile:(WebView*)webView expiresOn:(NSDate*)expiresOn
