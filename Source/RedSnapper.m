@@ -503,7 +503,7 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
     [[thumbnail TIFFRepresentation] writeToFile:[@"~/Desktop/thumbnail.tiff" stringByExpandingTildeInPath] atomically:YES];
 #endif    
 	[source release];
-	return thumbnail;
+	return [thumbnail autorelease];
 }
 
 - (NSData*) imageDataForWebView:(CGImageRef)image ofType:(NSString*)type ofQuality:(float)quality
@@ -664,9 +664,7 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
         }
         [data writeToFile:filename atomically:YES];
 		/* Generate Icon */
-		NSImage* icon = [self generateThumbnail:image];
-		[[NSWorkspace sharedWorkspace] setIcon:icon forFile:filename options:0];
-		[icon release];
+		[[NSWorkspace sharedWorkspace] setIcon:[self generateThumbnail:image] forFile:filename options:0];
 		CGImageRelease(image);
     }
 }
