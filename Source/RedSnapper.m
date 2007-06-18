@@ -425,34 +425,47 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
     CGImageRef image = NULL;
     NSView* oldSuperview = [webView superview];
     NSRect oldFrame = [webView frame];
-    NSWindow* temp = [[[NSWindow alloc] initWithContentRect:[view frame] styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO] autorelease];
+	BOOL oldAllowsScrolling = [[[webView mainFrame] frameView] allowsScrolling];
+
     [webView retain];
     [webView removeFromSuperviewWithoutNeedingDisplay];
+	
+	// Resize to correct width
+	frame.size.width = width;
+	[webView setFrame:frame];
+	view = [[[webView mainFrame] frameView] documentView];
+	// Grab new frame of correct height
+    frame = [view frame];
+	// Reset to correct width
+	frame.size.width = width;
+    NSWindow* temp = [[[NSWindow alloc] initWithContentRect:frame styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO] autorelease];	
     [[temp contentView] addSubview:webView];
     [webView setFrame:frame];
-    [webView display];
+	// Disable scroll bars so we don't see them in the image if it is too narrow
+	[[[webView mainFrame] frameView] setAllowsScrolling:false];
+    
+	[webView display];
     [view lockFocus];
     NSBitmapImageRep* imageRep = [[[NSBitmapImageRep alloc] initWithFocusedViewRect:frame] autorelease];
     [view unlockFocus];
     [webView removeFromSuperviewWithoutNeedingDisplay];
     [webView setFrame:oldFrame];
+	[[[webView mainFrame] frameView] setAllowsScrolling:oldAllowsScrolling];
     [oldSuperview addSubview:webView];
     [webView release];
-	
-	int height = (int)(((float)width/(float)frame.size.width) * (float)frame.size.height);
 
     void* buffer = malloc(frame.size.width * ((registered()?0:FOOTER) + frame.size.height) * 4);
     if (buffer) {
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-        CGContextRef context = CGBitmapContextCreate(buffer, width, (registered()?0:FOOTER) + height, 8, width * 4, colorSpace, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedLast);
+        CGContextRef context = CGBitmapContextCreate(buffer, frame.size.width, (registered()?0:FOOTER) + frame.size.height, 8, frame.size.width * 4, colorSpace, kCGBitmapByteOrder32Host | kCGImageAlphaPremultipliedLast);
         CGColorSpaceRelease(colorSpace);
         NSGraphicsContext* graphicsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:context flipped:NO];
         [NSGraphicsContext saveGraphicsState];
         [NSGraphicsContext setCurrentContext:graphicsContext];
         [graphicsContext setImageInterpolation:NSImageInterpolationHigh];
-		[imageRep drawInRect:NSMakeRect(0, (registered()?0:FOOTER), width, height)];
+		[imageRep drawInRect:NSMakeRect(0, (registered()?0:FOOTER), frame.size.width, frame.size.height)];
         if (!registered()) {
-            renderFooter(width);
+            renderFooter(frame.size.width);
         }
         [graphicsContext flushGraphics];
         [NSGraphicsContext restoreGraphicsState];
@@ -663,8 +676,7 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
             data = [self imageDataForWebView:image ofType:type ofQuality:quality];
         }
         [data writeToFile:filename atomically:YES];
-		/* Generate Icon */
-		[[NSWorkspace sharedWorkspace] setIcon:[self generateThumbnail:image] forFile:filename options:0];
+		/* TODO: Generate Icon */
 		CGImageRelease(image);
     }
 }
