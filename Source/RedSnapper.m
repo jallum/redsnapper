@@ -677,6 +677,20 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
         }
         [data writeToFile:filename atomically:YES];
 		/* TODO: Generate Icon */
+		
+		/* Save url to Finder Comment */
+		NSString* url = [[[[[webView mainFrame] provisionalDataSource] request] URL] absoluteString];
+		MDItemRef mdItem = MDItemCreate(NULL, (CFStringRef)filename);
+		MDItemSetAttribute(mdItem, kMDItemFinderComment, (CFStringRef)url);
+
+		/*
+		- MDItemCreate()
+		- NSString -(char*) fileSystemRepresentation
+		- extern int MDItemSetAttribute(MDItemRef item, CFStringRef attribute, CFTypeRef value);
+		- you can cast NSString* references directly to CFStringRef (which are valid CFTypeRef instances), btw.
+		- the key you attribute you wanna write is kMDItemFinderComment
+		*/
+		
 		CGImageRelease(image);
     }
 }

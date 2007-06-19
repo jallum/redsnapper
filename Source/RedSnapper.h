@@ -19,4 +19,6 @@
 - (void) snapPageFromToolbar:(id)sender;
 - (void) snapPageFromMenu:(id)sender;
 
+int MDItemSetAttribute(MDItemRef item, CFStringRef attribute, CFTypeRef value);
+
 @end
