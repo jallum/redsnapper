@@ -679,9 +679,12 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
 		/* TODO: Generate Icon */
 		
 		/* Save url to Finder Comment */
-		NSString* url = [[[[[webView mainFrame] provisionalDataSource] request] URL] absoluteString];
 		MDItemRef mdItem = MDItemCreate(NULL, (CFStringRef)filename);
-		MDItemSetAttribute(mdItem, kMDItemFinderComment, (CFStringRef)url);
+        if (mdItem) {
+            NSString* url = [[[[[webView window] windowController] document] currentURL] absoluteString];
+            MDItemSetAttribute(mdItem, kMDItemFinderComment, (CFStringRef)url);
+            CFRelease(mdItem);
+        }
 
 		/*
 		- MDItemCreate()
