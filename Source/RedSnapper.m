@@ -660,6 +660,66 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
     return data;
 }
 
+- (void) setFinderComment:(NSString*)comment forFile:(NSString*)file
+{
+    /*  Set the Spotlight Finder comment.
+     */
+    MDItemRef mdItem = MDItemCreate(NULL, (CFStringRef)file);
+    if (mdItem) {
+        MDItemSetAttribute(mdItem, kMDItemFinderComment, (CFStringRef)comment);
+        CFRelease(mdItem);
+    }
+
+    /*  Send the Finder an old-school Apple-Event to get it to set the comment.
+     *  This forces it to refresh it's internal caches, and makes the change
+     *  immediately available through the Finder's UI.
+     */
+    CFURLRef url = (CFURLRef)[NSURL fileURLWithPath:file];
+    Boolean isDirectory = CFURLHasDirectoryPath(url);
+    CFStringRef hfsPath = CFURLCopyFileSystemPath(url, kCFURLHFSPathStyle);
+    Size bufSize = (CFStringGetLength(hfsPath) + (isDirectory ? 1 : 0)) * sizeof(UniChar);
+    UniCharPtr buf = malloc(bufSize);
+    if (buf) {
+        CFStringGetCharacters(hfsPath, CFRangeMake(0, bufSize / 2), buf);
+        if (isDirectory) {
+            buf[(bufSize - 1) / 2] = ':';
+        }
+        AEDesc nameDesc = { typeNull, nil };
+        if (noErr == AECreateDesc(typeUnicodeText, buf, bufSize, &nameDesc)) {
+            AEDesc aeDesc = { typeNull, nil };
+            AEDesc containerDesc = { typeNull, nil };
+            if (noErr == CreateObjSpecifier(isDirectory ? cFolder : cFile, &containerDesc, formName, &nameDesc, false, &aeDesc)) {
+                AEBuildError aeBuildError;
+                AppleEvent ae = { typeNull, nil };
+                const OSType gFinderSignature = 'MACS';
+                if (noErr == AEBuildAppleEvent(
+                    kAECoreSuite,
+                    kAESetData,
+                    typeApplSignature,
+                    &gFinderSignature,
+                    sizeof(OSType),
+                    kAutoGenerateReturnID,
+                    kAnyTransactionID,
+                    &ae,
+                    &aeBuildError,
+                    "'----':obj {form:prop,want:type(prop),seld:type(comt),from:(@)},data:'TEXT'(@)",
+                    &aeDesc,
+                    [comment UTF8String]
+                )) {
+                    AppleEvent reply = { typeNull, nil };
+                    AESend(&ae, &reply, kAENoReply, kAENormalPriority, kNoTimeOut, nil, nil);
+                    AEDisposeDesc(&reply);
+                    AEDisposeDesc(&ae);
+                }
+                AEDisposeDesc(&containerDesc);
+            }
+            AEDisposeDesc(&aeDesc);
+            AEDisposeDesc(&nameDesc);
+        }
+        free(buf);
+    }
+}
+
 - (void) savePanelDidEnd:(NSSavePanel*)sheet returnCode:(int)returnCode contextInfo:(WebView*)webView
 {
     if (returnCode == NSOKButton) {
@@ -679,20 +739,7 @@ static CGImageRef CGImageFromWebView(WebView* webView, int width)
 		/* TODO: Generate Icon */
 		
 		/* Save url to Finder Comment */
-		MDItemRef mdItem = MDItemCreate(NULL, (CFStringRef)filename);
-        if (mdItem) {
-            NSString* url = [[[[[webView window] windowController] document] currentURL] absoluteString];
-            MDItemSetAttribute(mdItem, kMDItemFinderComment, (CFStringRef)url);
-            CFRelease(mdItem);
-        }
-
-		/*
-		- MDItemCreate()
-		- NSString -(char*) fileSystemRepresentation
-		- extern int MDItemSetAttribute(MDItemRef item, CFStringRef attribute, CFTypeRef value);
-		- you can cast NSString* references directly to CFStringRef (which are valid CFTypeRef instances), btw.
-		- the key you attribute you wanna write is kMDItemFinderComment
-		*/
+        [self setFinderComment:[[[[[webView window] windowController] document] currentURL] absoluteString] forFile:filename];
 		
 		CGImageRelease(image);
     }
